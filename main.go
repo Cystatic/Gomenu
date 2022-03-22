@@ -1,21 +1,29 @@
 package main
 
-import (
-	"fmt"
-)
-
-//求数组[1, 3, 5, 7, 8]所有元素的和
-func Sum() {
-	a := [5]int{1, 3, 5, 7, 8}
-	sum := 0
-	for _, i := range a {
-		sum += i
-	}
-	fmt.Println(sum)
-}
+import "fmt"
 
 func main() {
-	who := "world!"
-	fmt.Println("hello", who)
-	Sum()
+	var showmenu = menu()
+	showmenu()
+}
+func menu() func() {
+	var message string = ""
+	fmt.Print("请输入指令：h-help,v-version,q-quit\n")
+	fun := func() {
+		for {
+			fmt.Print(">>")
+			fmt.Scan(&message)
+			switch message {
+			case "h":
+				fmt.Println("help")
+			case "v":
+				fmt.Println("version-1.0")
+			case "q":
+				return
+			default:
+				fmt.Println("error command")
+			}
+		}
+	}
+	return fun
 }
