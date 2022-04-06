@@ -77,12 +77,13 @@ func showLinkTableData(linkTable *LinkTable) {
 		fmt.Print(" ")
 		curNode = curNode.next
 	}
-
+	fmt.Println()
 }
 
 //按序号查找某节点
 func findNodeByIndex(index int, linktable *LinkTable) *Node {
 	if index <= 0 || index > linktable.length {
+		fmt.Println("当前序号错误")
 		return nil
 	}
 	curNode := linktable.headNode
@@ -92,7 +93,7 @@ func findNodeByIndex(index int, linktable *LinkTable) *Node {
 	return curNode
 }
 
-//查找某节点是否存在
+//按值查找节点
 func findNodeByValue(data interface{}, linktable *LinkTable) *Node {
 	curNode := linktable.headNode.next
 	for curNode != nil {

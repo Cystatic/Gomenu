@@ -7,28 +7,31 @@ import (
 func main() {
 	// var showmenu = menu()
 	// showmenu()
-
 	linktable := initLinkTable()
-	// fmt.Println(linktable.headNode)
 
-	// insertHeadNode(1, linktable)
-	// insertHeadNode(2, linktable)
-	// insertHeadNode(3, linktable)
-	// showLinkTableData(linktable)
-	// fmt.Println()
-
+	insertTailNode(1, linktable)
+	insertTailNode(2, linktable)
+	insertTailNode(3, linktable)
 	insertTailNode(4, linktable)
 	insertTailNode(5, linktable)
 	insertTailNode(6, linktable)
-	// showLinkTableData(linktable)de
-	// fmt.Println()
-	// append(3, 7, linktable)
-	// fmt.Println(findNodeByIndex(1, linktable))
-	// fmt.Println(findNodeByValue(6, linktable))
 
-	deleteNode(2, linktable)
+	fmt.Print("初始链表：")
 	showLinkTableData(linktable)
 
+	fmt.Print("在索引为3处插入值为7的节点：")
+	append(3, 7, linktable)
+	showLinkTableData(linktable)
+
+	fmt.Print("查找索引为1的节点：")
+	fmt.Println(findNodeByIndex(1, linktable))
+
+	fmt.Print("查找值为6的节点：")
+	fmt.Println(findNodeByValue(6, linktable))
+
+	fmt.Print("删除第6个节点：")
+	deleteNode(6, linktable)
+	showLinkTableData(linktable)
 }
 func menu() func() {
 	var message string = ""
